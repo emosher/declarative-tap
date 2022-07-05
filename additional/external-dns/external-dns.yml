@@ -70,7 +70,7 @@ spec:
         - --source=service
         - --source=ingress
         - #@ "--domain-filter=" + str(data.values.tap.domains.main)
-        #@ if "aws" in data.values.tap.credentials.externalDns:
+        #@ if "aws" in data.values.tap.credentials.external-dns:
         - --provider=aws
         - --aws-zone-type=public #! Looks only at public hosted zones. Valid values are public, private, or no value for both.
         - --aws-prefer-cname
