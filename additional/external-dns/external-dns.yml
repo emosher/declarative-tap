@@ -69,7 +69,7 @@ spec:
         args:
         - --source=service
         - --source=ingress
-        - #@ "--domain-filter=" + str(data.values.tap.domains.main)
+        - "--domain-filter=" + str(data.values.tap.domains.main)
         #@ if "aws" in data.values.tap.credentials.external_dns:
         - --provider=aws
         - --aws-zone-type=public #! Looks only at public hosted zones. Valid values are public, private, or no value for both.
