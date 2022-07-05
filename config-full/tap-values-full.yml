@@ -83,6 +83,7 @@ contour:
 
 cnrs:
   domain_name: #@ data.values.tap.domains.knative
+  domain_template: "{{.Name}}.{{.Domain}}"
 #@ end
 ---
 apiVersion: v1
