@@ -74,7 +74,7 @@ spec:
         - --provider=aws
         - --aws-zone-type=public #! Looks only at public hosted zones. Valid values are public, private, or no value for both.
         - --aws-prefer-cname
-        - #@ "--txt-owner-id=" + str(data.values.tap.credentials.externalDns.aws.route_fifty_three_zone_id)
+        - #@ "--txt-owner-id=" + str(data.values.tap.credentials.external_dns.aws.route_fifty_three_zone_id)
         #@ else:
         - --provider=cloudflare
         #@ end
@@ -82,7 +82,7 @@ spec:
         - --txt-prefix=txt   
         - --registry=txt
         env:
-         #@ if "aws" in data.values.tap.credentials.externalDns:
+         #@ if "aws" in data.values.tap.credentials.external_dns:
          - name: AWS_ACCESS_KEY_ID
            valueFrom:
              secretKeyRef:
@@ -107,9 +107,9 @@ metadata:
   name: external-dns-credentials
   namespace: external-dns
 stringData:
-  #@ if "aws" in data.values.tap.credentials.externalDns:
-  aws_access_key_id: #@ data.values.tap.credentials.externalDns.aws.credentials.accessKey
-  aws_secret_access_key: #@ data.values.tap.credentials.externalDns.aws.credentials.secretKey
+  #@ if "aws" in data.values.tap.credentials.external_dns:
+  aws_access_key_id: #@ data.values.tap.credentials.external_dns.aws.credentials.accessKey
+  aws_secret_access_key: #@ data.values.tap.credentials.external_dns.aws.credentials.secretKey
   #@ else:
-  cf_api_token: #@ data.values.tap.credentials.externalDns.cloudflare.credentials.apiToken
+  cf_api_token: #@ data.values.tap.credentials.external_dns.cloudflare.credentials.apiToken
   #@ end
