@@ -14,7 +14,7 @@ buildservice:
   descriptor_name: "full"
   enable_automatic_dependency_updates: true
 
-# valid options are 'basic', 'testing', and 'testing_scanning'
+#! valid options are 'basic', 'testing', and 'testing_scanning'
 supply_chain: basic
 ootb_supply_chain_basic:
   registry:
