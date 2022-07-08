@@ -14,7 +14,7 @@ buildservice:
   descriptor_name: "full"
   enable_automatic_dependency_updates: true
 
-supply_chain: testing
+supply_chain: testing_scanning
 ootb_supply_chain_basic:
   registry:
     server: #@ data.values.tap.registry.host
