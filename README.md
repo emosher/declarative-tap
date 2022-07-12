@@ -36,7 +36,7 @@ by creating `tap-install-secrets.yml`:
 You are now ready to apply the GitOps configuration:
 
 ```shell
-kapp deploy -a tap-install-gitops -f <(ytt -f gitops)
+kapp deploy --wait-check-interval 15s -a tap-install-gitops -f <(ytt -f gitops)
 ```
 
 At this point, kapp-controller will monitor the Git repository: any updates
