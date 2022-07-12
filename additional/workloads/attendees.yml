@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: attendees
     apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/has-tests: true
   name: attendees
   namespace: dev-tap
 spec:
