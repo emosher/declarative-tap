@@ -20,7 +20,7 @@ spec:
       - config
       - config-full
       - additional/external-dns
-      - additional/workloads/workload.yml
+      - additional/workloads
       valuesFrom:
       - configMapRef:
           name: tap-install-gitops
