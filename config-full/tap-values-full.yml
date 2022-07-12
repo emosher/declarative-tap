@@ -15,7 +15,7 @@ buildservice:
   enable_automatic_dependency_updates: true
 
 #! valid options are 'basic', 'testing', and 'testing_scanning'
-supply_chain: testing_scanning
+supply_chain: basic
 ootb_supply_chain_basic:
   registry:
     server: #@ data.values.tap.registry.host
