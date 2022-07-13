@@ -3,10 +3,10 @@ apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
   labels:
-    app.kubernetes.io/part-of: tanzu-java-web-app-with-testing
+    app.kubernetes.io/part-of: tanzu-java-web-app
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/has-tests: true
-  name: tanzu-java-web-app-with-testing
+  name: tanzu-java-web-app
   namespace: dev-tap
 spec:
   params:
