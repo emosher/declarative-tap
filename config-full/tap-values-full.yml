@@ -82,21 +82,17 @@ tap_gui:
             password: #@ data.values.tap.credentials.backstage.database.password
             ssl: {rejectUnauthorized: true}
       #@ end
-    #@ if "github" in data.values.tap.credentials and "clientId" in data.values.tap.credentials.github and "clientSecret" in data.values.tap.credentials.github:
+    #@ if "okta" in data.values.tap.credentials and "clientId" in data.values.tap.credentials.okta and "clientSecret" in data.values.tap.credentials.okta:
     auth:
       allowGuestAccess: true
       environment: development
       providers:
         okta:
           development:
-            clientId:     #@ data.values.tap.credentials.tap_gui.auth.okta.clientId
-            clientSecret: #@ data.values.tap.credentials.tap_gui.auth.okta.clientSecret
-            audience:     #@ data.values.tap.credentials.tap_gui.auth.okta.audience
-            idp:          #@ data.values.tap.credentials.tap_gui.auth.okta.idp
-        github:
-          development:
-            clientId: #@ data.values.tap.credentials.github.clientId
-            clientSecret: #@ data.values.tap.credentials.github.clientSecret
+            clientId:     #@ data.values.tap.credentials.okta.clientId
+            clientSecret: #@ data.values.tap.credentials.okta.clientSecret
+            audience:     #@ data.values.tap.credentials.okta.audience
+            idp:          #@ data.values.tap.credentials.okta.idp
     #@ end
 
 metadata_store:
