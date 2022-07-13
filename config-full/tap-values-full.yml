@@ -84,8 +84,15 @@ tap_gui:
       #@ end
     #@ if "github" in data.values.tap.credentials and "clientId" in data.values.tap.credentials.github and "clientSecret" in data.values.tap.credentials.github:
     auth:
+      allowGuestAccess: true
       environment: development
       providers:
+        okta:
+          development:
+            clientId:     #@ data.values.tap.credentials.tap_gui.auth.okta.clientId
+            clientSecret: #@ data.values.tap.credentials.tap_gui.auth.okta.clientSecret
+            audience:     #@ data.values.tap.credentials.tap_gui.auth.okta.audience
+            idp:          #@ data.values.tap.credentials.tap_gui.auth.okta.idp
         github:
           development:
             clientId: #@ data.values.tap.credentials.github.clientId
