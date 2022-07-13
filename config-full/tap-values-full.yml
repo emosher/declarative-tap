@@ -85,6 +85,7 @@ tap_gui:
     #@ end
 
 metadata_store:
+  ns_for_export_app_cert: "*"
   app_service_type: LoadBalancer
  
 grype:
