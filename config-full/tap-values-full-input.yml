@@ -1,10 +1,15 @@
-#!  #@data/values
-#!  
-#!  #@overlay/match-child-defaults missing_ok=True
-#!  ---
-#!  tap:
-#!    devNamespace: dev-tap
-#!  
-#!    domains:
-#!      learningCenter: learningcenter.tap.tanzu.corp
-#!      knative: apps.tap.tanzu.corp
+#@data/values
+
+#@overlay/match-child-defaults missing_ok=True
+
+#! This file is used as a 'values' file for the manifests in
+#! this directory.
+---
+tap:
+  #! Name of the k8s namespace to set up for development.
+  #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-set-up-namespaces.html
+  devNamespace: dev-tap
+
+  domains:
+    learningCenter: learningcenter.tap.tanzu.corp
+    knative: apps.tap.tanzu.corp
