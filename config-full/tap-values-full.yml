@@ -1,6 +1,9 @@
 #@ load("@ytt:data", "data")
 #@ load("@ytt:yaml", "yaml")
 
+#!
+#! This file is your 'tap-values.yaml'
+#!
 ---
 #@ def config():
 profile: full
@@ -92,7 +95,6 @@ tap_gui:
             clientId:     #@ data.values.tap.credentials.okta.clientId
             clientSecret: #@ data.values.tap.credentials.okta.clientSecret
             audience:     #@ data.values.tap.credentials.okta.audience
-            #! idp:          #@ data.values.tap.credentials.okta.idp
     #@ end
 
 metadata_store:
