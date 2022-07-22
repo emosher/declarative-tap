@@ -107,9 +107,9 @@ metadata_store:
   ns_for_export_app_cert: "*"
   app_service_type: LoadBalancer
  
-grype:
-  #! namespace: #@ data.values.tap.devNamespaces[0]
-  targetImagePullSecret: "tap-registry"
+#!grype:
+#!  namespace: #@ data.values.tap.devNamespaces[0]
+#!  targetImagePullSecret: "tap-registry"
 
 contour:
   envoy:
