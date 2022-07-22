@@ -47,8 +47,8 @@ metadata:
   resourceVersion: "3232"
   uid: 366750b3-7db1-4dcf-8c86-addf34a7a117
 stringData:
-  ---
   values.yaml: |
+    ---
     namespace: #@ namespace
     targetImagePullSecret: tap-registry
 
