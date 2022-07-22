@@ -7,7 +7,7 @@
 #@ if data.values.tap.devNamespaces and data.values.tap.devNamespaces != "":
 ---
 apiVersion: scanning.apps.tanzu.vmware.com/v1beta1
-kind: CustomResourceDefinition
+kind: customResourceDefinition
 metadata:
   name: ScanPolicy
   annotations:
