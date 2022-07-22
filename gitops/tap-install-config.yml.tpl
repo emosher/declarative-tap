@@ -4,7 +4,8 @@
 tap:
   #! Set Backstage catalogs to include by default.
   catalogs:
-  - https://github.com/tanzu-corp/tap-catalog/blob/main/catalog-info.yaml
+  - https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+
 
   registry:
     host: registry.tanzu.corp
