@@ -37,22 +37,19 @@ spec:
   - secretRef:
       name: grype-values-user-01
 ---
+#! This is how we tell Grype where to put the scanTemplates and what imagePullSecret to use.
 apiVersion: v1
-data:
-  #! This is how we tell Grype where to put the scanTemplates and what imagePullSecret to use.
-  values.yaml: bmFtZXNwYWNlOiB1c2VyLTAxCnRhcmdldEltYWdlUHVsbFNlY3JldDogdGFwLXJlZ2lzdHJ5Cg==
 kind: Secret
 metadata:
   annotations:
   name: #@ "grype-values-{}".format(namespace)
   namespace: tap-install
+type: Opaque
 stringData:
   values.yaml: |
     ---
-#@    "namespace: {}".format(namespace)
+    namespace: #@ namespace
     targetImagePullSecret: tap-registry
-
-type: Opaque
 
 #! end for namespace...
 #@ end
