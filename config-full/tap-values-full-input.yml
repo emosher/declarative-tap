@@ -6,7 +6,7 @@
 #! this directory.
 ---
 tap:
-  #! Name of the k8s namespace to set up for development.
+  #! Name of additional k8s namespaces to set up for development.
   #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-set-up-namespaces.html
   devNamespaces: 
     - dev-tap
