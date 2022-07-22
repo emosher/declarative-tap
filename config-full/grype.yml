@@ -22,6 +22,7 @@ metadata:
   annotations:
     kapp.k14s.io/change-rule.scancontroller: upsert after upserting scancontroller
     kapp.k14s.io/change-rule.serviceaccount: delete before deleting serviceaccount
+    kapp.k14s.io/change-group: tap-install-gitops/grype
   name: #@ "grype-{}".format(namespace)
   namespace: tap-install
   finalizers:

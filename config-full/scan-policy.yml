@@ -13,8 +13,8 @@ metadata:
   name: scan-policy
   namespace: #@ namespace
   annotations:
-    kapp.k14s.io/change-rule.upsert: "upsert after upserting tap-install-gitops/app"
-    kapp.k14s.io/change-rule.delete:  "delete after deleting  tap-install-gitops/app"
+    kapp.k14s.io/change-rule.upsert: "upsert after upserting tap-install-gitops/grype"
+    kapp.k14s.io/change-rule.delete:  "delete after deleting  tap-install-gitops/grype"
 spec:
   regoFile: |
     package main
