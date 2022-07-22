@@ -1,3 +1,6 @@
+#@ load("@ytt:data", "data")
+
+
 #! Deploy simple Tekton pipeline into each dev namespace.
 #! Required for the testing, and testing_scanning OOTB supply chains.
 #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-getting-started-add-test-and-security.html#tekton-pipeline-config-example-3

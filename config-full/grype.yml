@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+
 #!
 #! Install the Grype package into each dev namespace.
 #! The Grype Package references a k8s secret to know where
