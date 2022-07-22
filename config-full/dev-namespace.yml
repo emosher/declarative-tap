@@ -118,7 +118,6 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: default
-
 #! end for...
 #@ end
 
