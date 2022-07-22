@@ -49,7 +49,7 @@ metadata:
 stringData:
   values.yaml: |
     ---
-#@  "namespace: {}".format(namespace)
+#@    "namespace: {}".format(namespace)
     targetImagePullSecret: tap-registry
 
 type: Opaque
