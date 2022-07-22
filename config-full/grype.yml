@@ -35,7 +35,7 @@ spec:
   serviceAccountName: tap-install-sa
   values:
   - secretRef:
-      name: grype-values-user-01
+      name: #@ "grype-values-{}".format(namespace)
 ---
 #! This is how we tell Grype where to put the scanTemplates and what imagePullSecret to use.
 apiVersion: v1
