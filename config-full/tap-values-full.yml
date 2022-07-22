@@ -108,7 +108,7 @@ metadata_store:
   app_service_type: LoadBalancer
  
 grype:
-  namespace: #@ data.values.tap.devNamespaces[0]
+  #! namespace: #@ data.values.tap.devNamespaces[0]
   targetImagePullSecret: "tap-registry"
 
 contour:
