@@ -1,8 +1,14 @@
+#! Deploy a scan policy into each dev namespace.
+#! Required for Grype scans to succed.
+#! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-getting-started-add-test-and-security.html#install-ootb-supply-chain-with-testing-and-scanning-5
+
+#@ if data.values.tap.devNamespaces and data.values.tap.devNamespaces != "":
+#@ for namespace in data.values.tap.devNamespaces:
 apiVersion: scanning.apps.tanzu.vmware.com/v1beta1
 kind: ScanPolicy
 metadata:
   name: scan-policy
-  namespace: dev-tap
+  namespace: #@ namespace
 spec:
   regoFile: |
     package main
@@ -32,3 +38,5 @@ spec:
       not isSafe(vuln)
       msg = sprintf("CVE %s %s %s", [comp.name, vuln.id, ratings])
     }
+#@ end
+#@ end

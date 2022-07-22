@@ -1,8 +1,15 @@
+#! Deploy simple Tekton pipeline into each dev namespace.
+#! Required for the testing, and testing_scanning OOTB supply chains.
+#! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-getting-started-add-test-and-security.html#tekton-pipeline-config-example-3
+
+#@ if data.values.tap.devNamespaces and data.values.tap.devNamespaces != "":
+#@ for namespace in data.values.tap.devNamespaces:
+
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: developer-defined-tekton-pipeline
-  namespace: dev-tap
+  namespace: #@ namespace
   labels:
     apps.tanzu.vmware.com/pipeline: test     # (!) required
 spec:
@@ -28,3 +35,6 @@ spec:
 
               wget -qO- $(params.source-url) | tar xvz -m
               ./mvnw test
+
+#@ end
+#@ end

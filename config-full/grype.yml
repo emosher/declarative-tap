@@ -1,0 +1,61 @@
+#!
+#! Install the Grype package into each dev namespace.
+#! The Grype Package references a k8s secret to know where
+#! to put the scan templates, so we need to create that as well.
+#! An example of that secret looks like this:
+#!
+#! values.yaml: |
+#!   namespace: user-01
+#!   targetImagePullSecret: tap-registry
+#!
+
+
+#@ if data.values.tap.devNamespaces and data.values.tap.devNamespaces != "":
+#@ for namespace in data.values.tap.devNamespaces:
+
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  annotations:
+    kapp.k14s.io/change-rule.scancontroller: upsert after upserting scancontroller
+    kapp.k14s.io/change-rule.serviceaccount: delete before deleting serviceaccount
+  name: #@ "grype-{}".format(namespace)
+  namespace: tap-install
+  finalizers:
+  - finalizers.packageinstall.packaging.carvel.dev/delete
+spec:
+  packageRef:
+    refName: grype.scanning.apps.tanzu.vmware.com
+    versionSelection:
+      constraints: "1.2.0"
+      prereleases: {}
+  serviceAccountName: tap-install-sa
+  values:
+  - secretRef:
+      name: grype-values-user-01
+---
+apiVersion: v1
+data:
+  #! This is how we tell Grype where to put the scanTemplates and what imagePullSecret to use.
+  values.yaml: bmFtZXNwYWNlOiB1c2VyLTAxCnRhcmdldEltYWdlUHVsbFNlY3JldDogdGFwLXJlZ2lzdHJ5Cg==
+kind: Secret
+metadata:
+  annotations:
+  name: #@ "grype-values-{}".format(namespace)
+  namespace: tap-install
+  resourceVersion: "3232"
+  uid: 366750b3-7db1-4dcf-8c86-addf34a7a117
+stringData:
+  ---
+  values.yaml: |
+    namespace: #@ namespace
+    targetImagePullSecret: tap-registry
+
+type: Opaque
+
+#! end for namespace...
+#@ end
+
+#! end if data.values.tap.....
+#@ end
