@@ -46,9 +46,10 @@ metadata:
   namespace: tap-install
 type: Opaque
 stringData:
+  #@ yaml/text-templated-strings
   values.yaml: |
     ---
-    namespace: #@ namespace
+    namespace: (@= namespace @)
     targetImagePullSecret: tap-registry
 
 #! end for namespace...
