@@ -21,6 +21,7 @@ This repo also includes:
 - [Sample workloads](additional/workloads/) to deploy after you've deployed TAP.
 - Automatic installation of Tekton Pipelines and ScanPolicies to support the scanning_testing OOTB supply chain. See [here](additional/set-up-scanning-testing/).
 - Easy creation of the service account required to see CVE scan results in tap-gui. See [here](additional/enable-cve-in-tap-gui/).
+- Simple 'source-to-url' Supply chain to be applied afterward (since the default install deploys the scanning_testing supply chains). See [here](additional/cluster-supply-chains/).
 
 ## How does it work?
 
