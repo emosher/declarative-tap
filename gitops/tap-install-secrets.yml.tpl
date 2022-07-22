@@ -48,6 +48,19 @@ tap:
       cloudflare-disabled:
         credentials:
           apiToken:
+
+    #! Uncomment any block to use it.
+
+    #! Enable Okta OIDC auth for tap-gui
+    #! ref: https://backstage.io/docs/auth/okta/provider
+    #!okta:
+    #!  clientId: INSERT-ID
+    #!  clientSecret: INSERT-SECRET
+    #!  audience:  INSERT-AUDIENCE (example: https://dev-123456.okta.com)
+
+    #! Allow tap-gui to access the security metadata store.
+    #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-scst-store-create-service-account-access-token.html#ro-serv-accts
+    metadata_svc_account_token: INSERT-TOKEN
 #@ end
 ---
 apiVersion: v1

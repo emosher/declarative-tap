@@ -9,13 +9,24 @@ while tracking any configuration updates with Git (easy rollbacks).
 
 **Please note that this project is authored by a VMware employee under open source license terms.**
 
+## What does it do?
+
+This repo:
+- Deploys TAP (full profile)
+- Creates a user-defined set of k8s namespaces (see [tap-values-full-input.yml](config-full/tap-values-full-input.yml) to define the namespaces.)
+- Sets up those namespaces for TAP development, including installation of a Grype scanPolicy and a Tekton Pipeline
+- [Optionally] Configures external-dns
+
+This repo also includes:
+- [Sample workloads](additional/workloads/) to deploy after you've deployed TAP.
+
 ## How does it work?
 
 This GitOps approach relies solely on [kapp-controller](https://carvel.dev/kapp-controller/)
 and [ytt](https://carvel.dev/ytt/) to track Git commits and apply the configuration
 to every cluster. These tools are part of the TAP prerequisites.
 
-## How to use it?
+## How do I use it?
 ### Setup
 1. Make sure [Cluster Essentials for VMware Tanzu is deployed to your cluster](https://docs.vmware.com/en/Tanzu-Application-Platform/1.0/tap/GUID-install-general.html#install-cluster-essentials-for-vmware-tanzu-2).
 
@@ -31,6 +42,10 @@ by creating `tap-install-secrets.yml`:
 1. (OPTIONAL) If you're updating any of the values of the TAP install, ala the TAP version or the like, you'll want to commit them to your git repo.
 
 1. (OPTIONAL) Remove any of the additional packages from the app in [`tap-install.yml`](gitops/tap-install.yml) should you not want them deployed. (ex. `additional/external-dns`)
+
+1. (OPTIONAL) Customize the list of developer namespaces you want created in [tap-values-full-input.yml](config-full/tap-values-full-input.yml).
+
+1. (OPTIONAL) AFTER DEPLOYMENT, if you want to view image scan results in tap-gui, you need to provide a service account token. See the value `metadata_svc_account_token` in [tap-install-secrets.yml.tpl](gitops/tap-install-secrets.yml.tpl) for where do to this.
 
 ### Deploy 
 You are now ready to apply the GitOps configuration:
