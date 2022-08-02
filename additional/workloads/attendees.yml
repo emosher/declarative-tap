@@ -8,6 +8,10 @@ metadata:
   name: attendees
   namespace: dev-tap
 spec:
+  params:
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
   source:
     git:
       ref:
