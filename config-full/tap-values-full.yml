@@ -110,7 +110,7 @@ metadata_store:
 
 accelerator:
   ingress:
-    include :true
+    include: true
   domain: #@ data.values.tap.domains.main
  
 #!grype:
