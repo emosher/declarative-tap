@@ -127,7 +127,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: #@ "{}-namespace-full-access".format(namespace)
-  namespace: example-ns
+  namespace: #@ namespace
 rules:
 - apiGroups: [""]
   resources: ["*"]
