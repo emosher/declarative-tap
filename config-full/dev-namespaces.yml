@@ -129,7 +129,7 @@ metadata:
   name: #@ "{}-namespace-full-access".format(namespace)
   namespace: #@ namespace
 rules:
-- apiGroups: ["*"]
+- apiGroups: [""]
   resources: ["*"]
   verbs: ["*"]
 - apiGroups: ["extensions"]
