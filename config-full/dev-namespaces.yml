@@ -145,7 +145,8 @@ metadata:
 subjects:
 - kind: User
   #! The username is expected to match the Namespace
-  name: #@ namespace
+  #! TODO: Remove hack with hardcoded email address (need to understand Pinniped configs).
+  name: #@ "{}@dne.com".format(namespace)
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
