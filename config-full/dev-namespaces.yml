@@ -135,6 +135,9 @@ rules:
 - apiGroups: ["extensions"]
   resources: ["*"]
   verbs: ["*"]
+- apiGroups: ["carto.run"]
+  resources: ["*"]
+  verbs: ["*"]
 ---
 #! Now the roleBinding
 kind: RoleBinding
@@ -145,8 +148,6 @@ metadata:
 subjects:
 - kind: User
   #! The username is expected to match the Namespace
-  #! TODO: Remove hack with hardcoded email address (need to understand Pinniped configs).
-  #!name: #@ "{}@dne.com".format(namespace)
   name: #@ namespace
   apiGroup: rbac.authorization.k8s.io
 roleRef:
