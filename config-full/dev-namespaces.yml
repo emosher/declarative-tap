@@ -118,6 +118,40 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: default
+---
+#!
+#! Give the user full access to their namespace
+#!
+#! Start with the role...
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: #@ "{}-namespace-full-access".format(namespace)
+  namespace: example-ns
+rules:
+- apiGroups: [""]
+  resources: ["*"]
+  verbs: ["*"]
+- apiGroups: ["extensions"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+#! Now the roleBinding
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: #@ "{}-namespace-rolebinding".format(namespace)
+  namespace: #@ namespace
+subjects:
+- kind: User
+  #! The username is expected to match the Namespace
+  name: #@ namespace
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: #@ "{}-namespace-full-access".format(namespace)
+  apiGroup: rbac.authorization.k8s.io
+
 #! end for...
 #@ end
 
