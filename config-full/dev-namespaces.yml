@@ -138,6 +138,9 @@ rules:
 - apiGroups: ["carto.run"]
   resources: ["*"]
   verbs: ["*"]
+- apiGroups: ["serving.knative.dev"]
+  resources: ["*"]
+  verbs: ["*"]
 ---
 #! Now the roleBinding
 kind: RoleBinding
