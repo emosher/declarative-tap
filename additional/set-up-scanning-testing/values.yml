@@ -16,6 +16,9 @@ tap:
     - user-03
     - user-04
     - user-05
+    - user-06
+    - user-07
+    - user-08
 
   domains:
     learningCenter: learningcenter.tap.tanzu.corp
