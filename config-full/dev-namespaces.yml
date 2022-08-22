@@ -141,6 +141,9 @@ rules:
 - apiGroups: ["serving.knative.dev"]
   resources: ["*"]
   verbs: ["*"]
+- apiGroups: ["tekton.dev"]
+  resources: ["*"]
+  verbs: ["*"]
 ---
 #! Now the roleBinding
 kind: RoleBinding
