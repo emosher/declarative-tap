@@ -1,0 +1,48 @@
+#@ load("@ytt:yaml", "yaml")
+---
+#@ def config():
+tap:
+  version: "1.2.0-build.18"
+  namespace: tap-install
+
+  #! Set Backstage catalogs to include by default.
+  catalogs:
+  - https://gitlab.com/drawsmcgraw/hello-tap/-/blob/master/catalog-info.yaml
+  - https://github.com/drawsmcgraw/pcf-ers-demo/blob/master/catalog-info.yaml
+  - https://github.com/drawsmcgraw/python-test/blob/main/catalog/catalog-info.yaml
+  - https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+
+  registry:
+    host: harbor.tanzu.tacticalprogramming.com
+    repositories:
+      buildService: tap/build-service
+      ootbSupplyChain: tap/supply-chain
+
+  domains:
+    main: tap.tacticalprogramming.com
+    tapGui: tap-gui.tap.tacticalprogramming.com
+    learningCenter: learningcenter.tap.tacticalprogramming.com
+    knative: tap.tacticalprogramming.com
+
+  #! Name of k8s namespaces to set up for development.
+  #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-set-up-namespaces.html
+  devNamespaces: 
+    - dev-tap
+    - user-01
+    - user-02
+    - user-03
+    - user-04
+    - user-05
+    - user-06
+    - user-07
+    - user-08
+
+#@ end
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tap-install-gitops
+  namespace: tap-install-gitops
+data:
+  tap-config.yml: #@ yaml.encode(config())

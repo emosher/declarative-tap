@@ -9,16 +9,16 @@ tap:
 
   #! Name of k8s namespaces to set up for development.
   #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-set-up-namespaces.html
-  devNamespaces: 
-    - dev-tap
-    - user-01
-    - user-02
-    - user-03
-    - user-04
-    - user-05
-    - user-06
-    - user-07
-    - user-08
+  #!!devNamespaces: 
+  #!!  - dev-tap
+  #!!  - user-01
+  #!!  - user-02
+  #!!  - user-03
+  #!!  - user-04
+  #!!  - user-05
+  #!!  - user-06
+  #!!  - user-07
+  #!!  - user-08
 
   domains:
     learningCenter: learningcenter.tap.tanzu.corp
