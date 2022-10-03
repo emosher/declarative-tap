@@ -110,6 +110,6 @@ stringData:
   #@ if "aws" in data.values.tap.credentials.external_dns:
   aws_access_key_id: #@ data.values.tap.credentials.external_dns.aws.credentials.accessKey
   aws_secret_access_key: #@ data.values.tap.credentials.external_dns.aws.credentials.secretKey
-  #@ else:
+  #@ else if "cloudflare" in data.values.tap.credentials.external_dns:
   cf_api_token: #@ data.values.tap.credentials.external_dns.cloudflare.credentials.apiToken
   #@ end
