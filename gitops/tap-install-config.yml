@@ -13,7 +13,7 @@ tap:
   - https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
   registry:
-    host: 370094717320.dkr.ecr.us-east-1.amazonaws.com
+    host: 370094717320.dkr.ecr.us-east-1.amazonaws.com/tap
     repositories:
       buildService: tap/build-service
       ootbSupplyChain: tap/supply-chain
