@@ -10,8 +10,8 @@ spec:
   serviceAccountName: tap-install-gitops-sa
   fetch:
   - git:
-      url: https://github.com/drawsmcgraw/declarative-tap
-      ref: origin/main
+      url: https://github.com/emosher/declarative-tap
+      ref: origin/emosher
       secretRef:
         name: tap-install-gitops-github
   template:

@@ -13,16 +13,16 @@ tap:
   - https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
   registry:
-    host: harbor.tanzu.tacticalprogramming.com
+    host: 370094717320.dkr.ecr.us-east-1.amazonaws.com
     repositories:
       buildService: tap/build-service
       ootbSupplyChain: tap/supply-chain
 
   domains:
-    main: tap.tacticalprogramming.com
-    tapGui: tap-gui.tap.tacticalprogramming.com
-    learningCenter: learningcenter.tap.tacticalprogramming.com
-    knative: tap.tacticalprogramming.com
+    main: tap.emosher.com
+    tapGui: tap-gui.tap.emosher.com
+    learningCenter: learningcenter.tap.emosher.com
+    knative: tap.emosher.com
 
   #! Name of k8s namespaces to set up for development.
   #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-set-up-namespaces.html
