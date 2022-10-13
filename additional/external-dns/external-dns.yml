@@ -104,10 +104,14 @@ spec:
                key: cf_api_token
          #@ elif "googledns" in data.values.tap.credentials.external_dns:
          - name: GOOGLE_APPLICATION_CREDENTIALS
-           valueFrom:
-             secretKeyRef:
-               name: external-dns-credentials
-               key: key_json
+           value: /etc/secrets/service-account/credentials.json
+        volumeMounts:
+          - name: google-service-account
+            mountPath: /etc/secrets/service-account/
+        volumes:
+          - name: google-service-account
+            secret:
+              secretName: external-dns-credentials
          #@ end
 ---
 apiVersion: v1
