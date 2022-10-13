@@ -77,7 +77,7 @@ spec:
         - #@ "--txt-owner-id=" + str(data.values.tap.credentials.external_dns.aws.route_fifty_three_zone_id)
         #@ elif "cloudflare" in data.values.tap.credentials.external_dns:
         - --provider=cloudflare
-        #@ elif "googledns" in data.values.tap.credentials.external_dns
+        #@ elif "googledns" in data.values.tap.credentials.external_dns:
         - --provider=google
         - --google-zone-visibility=public
         #@ end
