@@ -102,6 +102,12 @@ spec:
              secretKeyRef:
                name: external-dns-credentials
                key: cf_api_token
+         #@ elif "googledns" in data.values.tap.credentials.external_dns:
+         - name: GOOGLE_APPLICATION_CREDENTIALS
+           valueFrom:
+             secretKeyRef:
+               name: external-dns-credentials
+               key: key_json
          #@ end
 ---
 apiVersion: v1
