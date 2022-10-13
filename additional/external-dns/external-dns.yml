@@ -108,10 +108,10 @@ spec:
         volumeMounts:
           - name: google-service-account
             mountPath: /etc/secrets/service-account/
-        volumes:
-          - name: google-service-account
-            secret:
-              secretName: external-dns-credentials
+      volumes:
+        - name: google-service-account
+          secret:
+            secretName: external-dns-credentials
          #@ end
 ---
 apiVersion: v1
