@@ -1,5 +1,7 @@
 .DS_Store
 config-custom
 
+tanzu-cluster-essentials*
+
 # SECRETS
 tap-install-secrets.yml
