@@ -2,7 +2,7 @@
 ---
 #@ def config():
 tap:
-  version: "1.2.0-build.18"
+  version: "1.3.0"
   namespace: tap-install
 
   #! Set Backstage catalogs to include by default.
@@ -13,16 +13,16 @@ tap:
   - https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
 
   registry:
-    host: 370094717320.dkr.ecr.us-east-1.amazonaws.com/tap
+    host: us-east4-docker.pkg.dev/mosher-workspace
     repositories:
       buildService: tap/build-service
       ootbSupplyChain: tap/supply-chain
 
   domains:
-    main: tap.emosher.com
-    tapGui: tap-gui.tap.emosher.com
-    learningCenter: learningcenter.tap.emosher.com
-    knative: tap.emosher.com
+    main: tap.moshere.tech
+    tapGui: tap-gui.tap.moshere.tech
+    learningCenter: learningcenter.tap.moshere.tech
+    knative: tap.moshere.tech
 
   #! Name of k8s namespaces to set up for development.
   #! ref: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-set-up-namespaces.html

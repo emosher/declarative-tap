@@ -65,7 +65,7 @@ spec:
       serviceAccountName: external-dns
       containers:
       - name: external-dns
-        image: k8s.gcr.io/external-dns/external-dns:v0.10.2
+        image: k8s.gcr.io/external-dns/external-dns:v0.11.0
         args:
         - --source=service
         - --source=ingress
@@ -75,8 +75,11 @@ spec:
         - --aws-zone-type=public #! Looks only at public hosted zones. Valid values are public, private, or no value for both.
         - --aws-prefer-cname
         - #@ "--txt-owner-id=" + str(data.values.tap.credentials.external_dns.aws.route_fifty_three_zone_id)
-        #@ else:
+        #@ elif "cloudflare" in data.values.tap.credentials.external_dns:
         - --provider=cloudflare
+        #@ elif "googledns" in data.values.tap.credentials.external_dns
+        - --provider=google
+        - --google-zone-visibility=public
         #@ end
         - --policy=upsert-only
         - --txt-prefix=txt   
@@ -93,7 +96,7 @@ spec:
              secretKeyRef:
                name: external-dns-credentials
                key: aws_secret_access_key
-         #@ else:
+         #@ elif "cloudflare" in data.values.tap.credentials.external_dns:
          - name: CF_API_TOKEN
            valueFrom:
              secretKeyRef:
@@ -112,4 +115,6 @@ stringData:
   aws_secret_access_key: #@ data.values.tap.credentials.external_dns.aws.credentials.secretKey
   #@ elif "cloudflare" in data.values.tap.credentials.external_dns:
   cf_api_token: #@ data.values.tap.credentials.external_dns.cloudflare.credentials.apiToken
+  #@ elif "googledns" in data.values.tap.credentials.external_dns:
+  key_json: #@ data.values.tap.credentials.external_dns.googledns.credentials.key_json
   #@ end
