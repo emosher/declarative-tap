@@ -119,7 +119,7 @@ kind: Secret
 metadata:
   name: external-dns-credentials
   namespace: external-dns
-data:
+stringData:
   #@ if "aws" in data.values.tap.credentials.external_dns:
   aws_access_key_id: #@ data.values.tap.credentials.external_dns.aws.credentials.accessKey
   aws_secret_access_key: #@ data.values.tap.credentials.external_dns.aws.credentials.secretKey
