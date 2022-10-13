@@ -126,5 +126,5 @@ data:
   #@ elif "cloudflare" in data.values.tap.credentials.external_dns:
   cf_api_token: #@ data.values.tap.credentials.external_dns.cloudflare.credentials.apiToken
   #@ elif "googledns" in data.values.tap.credentials.external_dns:
-  dns_solver_key.json: #@ data.values.tap.credentials.external_dns.googledns.dns-solver-key.json
+  dns_solver_key.json: #@ data.values.tap.credentials.external_dns.googledns.dns_solver_key.json
   #@ end
